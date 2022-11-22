@@ -1,16 +1,24 @@
-import { useState } from 'react'
-import './App.css'
-import Button from './components/Button'
+import * as React from 'react';
+import Header from './components/Header'
+import List from './components/List'
+import RunningString from './components/RunningString';
 
-function App() {
-  const [count, setCount] = useState(0)
+//Context
+const todoList: string[] = ['first task', 'second task']
+const ListContext = React.createContext<string[] | null>(null)
 
-  return (
-    <div className="App">
-      <p>App</p>
-      <Button/>
-    </div>
-  )
+class App extends React.Component {
+  render() {
+    return (
+      <ListContext.Provider value={{ todoList }}>
+        <div className="app" style={{ height: 844, width: 390 }}>
+          <Header />
+          <List />
+          <RunningString />
+        </div>
+      </ListContext.Provider>
+    );
+  }
 }
 
 export default App
