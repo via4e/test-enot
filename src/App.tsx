@@ -4,13 +4,18 @@ import List from './components/List'
 import RunningString from './components/RunningString';
 
 //Context
-const todoList: string[] = ['first task', 'second task']
-const ListContext = React.createContext<string[] | null>(null)
+
+export interface AppList {
+  list: string[];
+}
+
+const todoList: AppList = { list: ['first task', 'second task'] }
+export const ListContext = React.createContext<AppList | null>(null)
 
 class App extends React.Component {
   render() {
     return (
-      <ListContext.Provider value={{ todoList }}>
+      <ListContext.Provider value={todoList}>
         <div className="app" style={{ height: 844, width: 390 }}>
           <Header />
           <List />

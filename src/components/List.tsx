@@ -1,19 +1,16 @@
 import React, { useContext } from 'react'
+import { ListContext } from '../App'
 
 class List extends React.Component {
     render() {
         return (
-            <div className="list">
-                <ul>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                    <li>1</li>
-                </ul>
-            </div>
+            <ListContext.Consumer>
+                {list => (
+                    <div className="list">
+                        wetwe
+                    </div>
+                )}
+            </ListContext.Consumer>
         )
     }
 }
