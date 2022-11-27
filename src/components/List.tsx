@@ -9,7 +9,6 @@ class List extends React.Component {
     }
 
     todoChecked (...args) {
-        console.log('List todoChecked', args)
         this.props.toggleDone({ done: args[0], index: args[1]})
     }
 

@@ -34,10 +34,17 @@ body {
   background-color: #222222;
 }
 
+#top {
+  position: relative;
+  width: 100%;
+  height: 1px;
+}
+
 .header-app {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   height: 30px;
   width: 313px;
   font-size: 36px;
@@ -47,7 +54,6 @@ body {
 .list {
   display: flex;
   flex-direction: column;
-  align-items: left;
   margin-top: 24px;
   height: 720px;
   width: 350px;
@@ -72,7 +78,7 @@ body {
 .list li .todo {
   position: relative;
   margin: 15px 0;
-  width:350px;
+  width: 350px;
   height: 41px;
 }
 
@@ -80,7 +86,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #cfcfcf;
+  background: #282828;
   border-radius: 2px;
   font-size: 24px;
   width: 5px;
@@ -141,8 +147,7 @@ body {
   position: relative;
   margin: 15px 0;
   width: 350px;
-  height: 80px;
-  background-color: #222222;
+  height: 90px;
   background: #282828;
   box-shadow: 16px 16px 20px rgba(0, 0, 0, 0.15), -8px -8px 20px rgba(255, 255, 255, 0.05);
   border-radius: 40px;
@@ -151,23 +156,67 @@ body {
 .control input {
   color: #ffffff;
   padding: 0 8px;
-  width: 256px;
+  width: 240px;
   height: 30px;
 }
 
 .control button {
   position: absolute;
-  top: 15px;
-  right: 0;
+  top: 20px;
+  right: 15px;
 }
 
 .running {
+  position: relative;
   height: 30px;
-  width: 370px;
+  width: 350px;
+  overflow: hidden;
   margin-bottom: 24px;
-  background-color: #000;
-
   background: #282828;
   box-shadow: 16px 16px 20px rgba(0, 0, 0, 0.15), -8px -8px 20px rgba(255, 255, 255, 0.05);
   border-radius: 40px;
+}
+
+.running p {
+  position: absolute;
+  top: -20px;
+  text-align: center;
+  color: #fff;
+  animation: text 12s infinite linear;
+  padding-left: 100%;
+  white-space: nowrap;
+}
+
+@keyframes text {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  100% {
+    transform: translate(-160%, 20%);
+  }
+}
+
+.gear {
+  position: absolute;
+  top: 36px;
+  right: 56px;
+  background: #282828;
+  width: 180px;
+  height: 96px;
+  z-index: 111;
+  box-shadow: 16px 16px 20px rgba(0, 0, 0, 0.15), -8px -8px 20px rgba(255, 255, 255, 0.05);
+  border: 1px solid #535bf2;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.gear button {
+  position: absolute;
+  bottom: 8px;
+  left: 50px;
+}
+
+.none {
+  display: none;
 }

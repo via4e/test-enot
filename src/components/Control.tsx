@@ -36,8 +36,8 @@ class Control extends React.Component {
   render () {
     return (
       <div className='control'>
-        <Input placeholder='New ToDo' value={this.state.header} defaultValue={this.state.header} onChange={this.onChangeHeader.bind(this)} />
-        <Input placeholder='description' value={this.state.text}  defaultValue={this.state.text} onChange={this.onChangeText.bind(this)}  />
+        <Input placeholder='New ToDo text' value={this.state.header} onChange={this.onChangeHeader.bind(this)} />
+        <Input placeholder='New ToDo description' value={this.state.text} onChange={this.onChangeText.bind(this)}  />
         <Button variant='contained' onClick={ this.addHandler }>Add</Button>
       </div>
     );

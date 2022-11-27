@@ -26,7 +26,6 @@ class ListElement extends React.Component<todoElement> {
     };
 
     onChange(ev) {
-        console.log('ListElement', ev.target.checked, this.props.index)
         this.props.toggle(ev.target.checked, this.props.index)
     }
 

@@ -1,5 +1,2 @@
-## Todo ))
-1. Выровнять вёрстку
-2. Выкинуть все комментарии
-3. Убрать лишние компоненты (Button)
+Yet another todo app with running string
 

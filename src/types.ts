@@ -9,5 +9,8 @@ export interface todoList {
 }
 
 export interface AppContent {
-    settingsVisible: boolean
+    settingsVisible: boolean,
+    runningVisible: boolean,
+    settingsToggle: (boolean) => boolean,
+    runningToggle: (boolean) => boolean,
 }

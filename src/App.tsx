@@ -1,14 +1,25 @@
 import * as React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import Header from './components/Header'
+import Gear from './components/Gear'
 import List from './components/List'
 import RunningString from './components/RunningString';
 import Control from './components/Control';
-import { AppContext, todoElement, todoList } from './types';
+import { AppContext } from './types';
 
 
 const config: AppContext = {
-  settingsVisible: false
+  settingsVisible: false,
+  settingsToggle(value) {
+    this.settingsVisible = value
+  },
+  runningVisible: true,
+  runningToggle(value) {
+    this.runningVisible = value
+  }
 }
+
+const queryClient = new QueryClient();
 
 export const Context = React.createContext<AppContext | null>(null)
 
@@ -24,6 +35,18 @@ class App extends React.Component {
     }
     this.addToList = this.addToList.bind(this)
     this.markAsDone = this.markAsDone.bind(this)
+    this.toggleRunningString = this.toggleRunningString.bind(this)
+    this.toggleSettings = this.toggleSettings.bind(this)
+  }
+
+  toggleRunningString (value) {
+    config.runningToggle(value)
+    this.forceUpdate()
+  }
+
+  toggleSettings(value) {
+    config.settingsToggle(value)
+    this.forceUpdate()
   }
 
   addToList(item, this) {
@@ -38,23 +61,26 @@ class App extends React.Component {
   }
 
   markAsDone(item) {
-    console.log('App', item)
     const { done, index} = item
     const newList = this.state.list
     newList[index].done = done
-    console.log('App', newList[index])
     this.setState({ list: newList })
   }
 
   render() {
     return (
       <Context.Provider value={config}>
+        <QueryClientProvider client={queryClient}>
         <div className="app" style={{ height: 844, width: 390 }}>
-          <Header />
+          <div id='top'>
+            <Gear toggleSettings={this.toggleSettings}  toggleRunning={this.toggleRunningString}/>
+          </div>
+          <Header toggleSettings={this.toggleSettings} />
           <List list={this.state.list} toggleDone={this.markAsDone} />
           <Control add={this.addToList} />
           <RunningString />
         </div>
+        </QueryClientProvider>
       </Context.Provider>
     );
   }
