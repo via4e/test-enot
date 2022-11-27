@@ -1,16 +1,47 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from '@mui/material/Button';
-import { ListContext } from '../App';
+import Input from '@mui/material/Input';
 
-export default function Control() {
-  const appContext = useContext(ListContext)
-  const addHandler = () => { 
-    appContext?.list.push('new task ' + Math.random(3)+1) 
-    console.log(appContext)
+const ariaLabel = { 'aria-label': 'description' };
+
+class Control extends React.Component {
+  constructor(props) {
+    super(props);
+    this.addHandler = this.addHandler.bind(this)
   }
-  return (
-    <div>
-      <Button variant="contained" onClick={ addHandler }>Add</Button>
-    </div>
-  );
+
+  state = {
+    header: '',
+    text: ''
+  };
+
+  onChangeHeader(ev) {
+    this.setState({ header: ev.target.value });
+  }
+
+  onChangeText(ev) {
+    this.setState({ text: ev.target.value });
+  }
+
+  addHandler () {
+    const obj = {
+      header: this.state.header,
+      text: this.state.text,
+      done: false
+    }
+    this.setState({ header: '', text: '' })
+    this.props.add(obj)
+  }
+
+  render () {
+    return (
+      <div className='control'>
+        <Input placeholder='New ToDo' value={this.state.header} defaultValue={this.state.header} onChange={this.onChangeHeader.bind(this)} />
+        <Input placeholder='description' value={this.state.text}  defaultValue={this.state.text} onChange={this.onChangeText.bind(this)}  />
+        <Button variant='contained' onClick={ this.addHandler }>Add</Button>
+      </div>
+    );
+  }
 }
+
+export default Control

@@ -51,6 +51,9 @@ body {
   margin-top: 24px;
   height: 720px;
   width: 350px;
+  background: #282828;
+  box-shadow: 16px 16px 20px rgba(0, 0, 0, 0.15), -8px -8px 20px rgba(255, 255, 255, 0.05);
+  border-radius: 40px;
 }
 
 .list ul {
@@ -63,12 +66,13 @@ body {
 .list li {
   font-family: 'Abhaya Libre SemiBold', Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 600;
+  margin: 0 17px;
 }
 
 .list li .todo {
   position: relative;
   margin: 15px 0;
-  width: 350px;
+  width:350px;
   height: 41px;
 }
 
@@ -87,8 +91,9 @@ body {
   position: absolute;
   top: 0;
   left: 18px;
-  width: 240px;
+  width: 260px;
   height: 41px;
+  overflow: hidden;
   white-space: nowrap;
 }
 
@@ -98,7 +103,7 @@ body {
   left: 0;
   color: #ffffff;
   font-size: 24px;
-  width: 240px;
+  width: 200px;
   height: 24px;
 }
 
@@ -110,7 +115,7 @@ body {
   font-size: 24px;
   justify-self: start;
   text-decoration: line-through;
-  width: 240px;
+  width: 200px;
   height: 24px;
 }
 
@@ -127,13 +132,42 @@ body {
 .list li .todo .switch {
   position: absolute;
   top: 0;
-  left: 300px;
+  left: 280px;
   width: 40px;
   height: 41px;
+}
+
+.control {
+  position: relative;
+  margin: 15px 0;
+  width: 350px;
+  height: 80px;
+  background-color: #222222;
+  background: #282828;
+  box-shadow: 16px 16px 20px rgba(0, 0, 0, 0.15), -8px -8px 20px rgba(255, 255, 255, 0.05);
+  border-radius: 40px;
+}
+
+.control input {
+  color: #ffffff;
+  padding: 0 8px;
+  width: 256px;
+  height: 30px;
+}
+
+.control button {
+  position: absolute;
+  top: 15px;
+  right: 0;
 }
 
 .running {
   height: 30px;
   width: 370px;
+  margin-bottom: 24px;
   background-color: #000;
+
+  background: #282828;
+  box-shadow: 16px 16px 20px rgba(0, 0, 0, 0.15), -8px -8px 20px rgba(255, 255, 255, 0.05);
+  border-radius: 40px;
 }

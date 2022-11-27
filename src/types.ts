@@ -1,8 +1,13 @@
-export interface AppContext {
+export interface todoElement {
+    done: boolean,
+    header: string,    
+    text: string,
+}
+
+export interface todoList {
     list: {}[];
 }
 
-export interface todoElement {
-    text: string,
-    done: boolean
+export interface AppContent {
+    settingsVisible: boolean
 }
