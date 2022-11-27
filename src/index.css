@@ -34,7 +34,7 @@ body {
   background-color: #222222;
 }
 
-.header {
+.header-app {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
@@ -48,8 +48,88 @@ body {
   display: flex;
   flex-direction: column;
   align-items: left;
+  margin-top: 24px;
   height: 720px;
   width: 350px;
+}
+
+.list ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
+.list li {
+  font-family: 'Abhaya Libre SemiBold', Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+}
+
+.list li .todo {
+  position: relative;
+  margin: 15px 0;
+  width: 350px;
+  height: 41px;
+}
+
+.list li .todo .left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #cfcfcf;
+  border-radius: 2px;
+  font-size: 24px;
+  width: 5px;
+  height: 41px;
+}
+
+.list li .todo .todo-card {
+  position: absolute;
+  top: 0;
+  left: 18px;
+  width: 240px;
+  height: 41px;
+  white-space: nowrap;
+}
+
+.list li .todo .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  font-size: 24px;
+  width: 240px;
+  height: 24px;
+}
+
+.list li .todo .header-strike {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  font-size: 24px;
+  justify-self: start;
+  text-decoration: line-through;
+  width: 240px;
+  height: 24px;
+}
+
+.list li .todo .text {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  color: #ffffff;
+  font-size: 14px;
+  width: 200px;
+  height: 16px;
+}
+
+.list li .todo .switch {
+  position: absolute;
+  top: 0;
+  left: 300px;
+  width: 40px;
+  height: 41px;
 }
 
 .running {

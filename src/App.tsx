@@ -3,14 +3,14 @@ import Header from './components/Header'
 import List from './components/List'
 import RunningString from './components/RunningString';
 import Control from './components/Control';
+import { AppContext } from './types';
 
-//Context
-
-export interface AppContext {
-  list: string[];
+const todoList: AppContext = {
+  list: [
+    { header: 'First man in mars say Hello', text: 'First man in mars say Hello to all people', done: false },
+    { header: 'Flash Gordon Conquers the Universe', text: 'Harry C. Bradley, Larry "Buster" Crabbe, Shirley Deane', done: true }
+  ]
 }
-
-const todoList: AppContext = { list: ['first task', 'second task'] }
 export const ListContext = React.createContext<AppContext | null>(null)
 
 class App extends React.Component {
